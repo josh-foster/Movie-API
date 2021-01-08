@@ -11,15 +11,18 @@ function App() {
     const cleanedMovie = {
       id: movie.imdbID,
       title: movie.Title,
-      release: movie.Released,
-      year: movie.Year
+      year: movie.Year,
+      img: movie.Poster
     };
     return cleanedMovie;
   }
 
-  // const activateSearch = (searchTerm) => {
+
+ 
+//   const activateSearch = (searchTerm) => {
 //   if(searchTerm) {
-//     return ``
+//     searchTerm.replace(/\s/g, '+');
+//     return `http://www.omdbapi.com/?apikey=248d288&s=lord+of+the+rings`
 //   } else {
 //     return ``
 //   }
@@ -29,10 +32,10 @@ function App() {
 
 
 const getMovies = () => {
-  fetch(`http://www.omdbapi.com/?apikey=248d288&t=lord+of+the+rings`)
+  fetch(`http://www.omdbapi.com/?apikey=248d288&s=abe&y=2002`)
   .then((res) => res.json())
   .then((res) => {
-    const cleanedMovies = cleanMovieData(res);
+    const cleanedMovies = res.Search.map(cleanMovieData);
     console.log(cleanedMovies);
   })
   .catch((error) => {
@@ -47,9 +50,9 @@ useEffect(() => {
   return (
     <>
       <section className="nav">
-        <Navbar 
+        <Navbar
         />
-      </section> 
+      </section>
       <section className="content">
         <Main/>
       </section>
