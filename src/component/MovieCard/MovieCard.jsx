@@ -18,7 +18,7 @@ const MovieCard = (props) => {
       <section>
         <img className={styles.img} src={img} alt=""/>
       </section>
-      <p>{year}</p>
+      <p>Released in {year}</p>
     </article>
   </>
   );

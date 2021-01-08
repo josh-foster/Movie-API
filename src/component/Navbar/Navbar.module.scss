@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     margin-left: 2%;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Bebas Neue', cursive;
     font-size: 2rem;
     width: 20vw;  
 }
@@ -23,6 +23,12 @@
         justify-content: flex-end;
         
     }
+}
+@media only screen and (max-width: 768px) {
+    .title{
+        font-size: 1.5rem ;
+    }
+   
 }
 @media only screen and (max-width: 425px) {
     .title{

@@ -8,7 +8,7 @@ import Navbar from './component/Navbar'
 function App() {
 
   const [movies, setMovies] = useState([]);
-  console.log(movies);
+
 
   const cleanMovieData = (movie) => {
     const cleanedMovie = {
@@ -22,20 +22,20 @@ function App() {
 
 
  
-//   const activateSearch = (searchTerm) => {
-//   if(searchTerm) {
-//     searchTerm.replace(/\s/g, '+');
-//     return `http://www.omdbapi.com/?apikey=248d288&s=lord+of+the+rings`
-//   } else {
-//     return ``
-//   }
-// }
+  const activateSearch = (searchTerm) => {
+  if(searchTerm) {
+    searchTerm.replace(/\s/g, '+');
+    return `http://www.omdbapi.com/?apikey=248d288&s=${searchTerm}`
+  } else {
+    return ``
+  }
+}
 
 
 
 
-const getMovies = () => {
-  fetch(`http://www.omdbapi.com/?apikey=248d288&s=lord+of+the+rings`)
+const getMovies = (searchTerm) => {
+  fetch(activateSearch(searchTerm))
   .then((res) => res.json())
   .then((res) => {
     if(res.Error){
@@ -43,7 +43,10 @@ const getMovies = () => {
     } else {
       const cleanedMovies = res.Search.map(cleanMovieData);
       console.log(cleanedMovies)
-      setMovies(cleanedMovies);
+      const removedNoImgMovies = cleanedMovies.filter((movie) => {
+        return movie.img !== "N/A";
+      }) 
+      setMovies(removedNoImgMovies);
     }
     
   })
@@ -60,6 +63,8 @@ useEffect(() => {
     <>
       <section className="nav">
         <Navbar
+        getMovies={getMovies}
+        activateSearch={activateSearch}
         />
       </section>
       <section className="content">
