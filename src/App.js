@@ -7,6 +7,9 @@ import Navbar from './component/Navbar'
 
 function App() {
 
+  const [movies, setMovies] = useState([]);
+  console.log(movies);
+
   const cleanMovieData = (movie) => {
     const cleanedMovie = {
       id: movie.imdbID,
@@ -32,15 +35,17 @@ function App() {
 
 
 const getMovies = () => {
-  fetch(`http://www.omdbapi.com/?apikey=248d288&s=ade&y=2001`)
+  fetch(`http://www.omdbapi.com/?apikey=248d288&s=lord+of+the+rings`)
   .then((res) => res.json())
   .then((res) => {
     if(res.Error){
       console.log(res.Error)
     } else {
       const cleanedMovies = res.Search.map(cleanMovieData);
-      console.log(cleanedMovies);
+      console.log(cleanedMovies)
+      setMovies(cleanedMovies);
     }
+    
   })
   .catch((error) => {
     console.log(error);
@@ -58,7 +63,7 @@ useEffect(() => {
         />
       </section>
       <section className="content">
-        <Main/>
+        <Main movies={movies}/>
       </section>
     </>
   );

@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "./Main.module.scss";
+import MovieCardList from "../MovieCardList"
 
-const Main = () => {
+const Main = (props) => {
+
+  const {movies} = props
   return (
     <>
-      <p>Main works</p>
+      <MovieCardList movies={movies}/>
     </>
   );
 };

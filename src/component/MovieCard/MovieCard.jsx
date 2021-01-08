@@ -1,11 +1,26 @@
 import React from "react";
 import styles from "./MovieCard.module.scss";
 
-const MovieCard = () => {
+const MovieCard = (props) => {
+
+  const {
+    id,
+    title,
+    year, 
+    img
+
+    
+  } = props.movie
   return (
     <>
-      <p>MovieCard works</p>
-    </>
+    <article className={styles.card}>
+      <h2>{title}</h2>
+      <section>
+        <img className={styles.img} src={img} alt=""/>
+      </section>
+      <p>{year}</p>
+    </article>
+  </>
   );
 };
 

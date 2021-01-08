@@ -1,0 +1,15 @@
+.cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 275px);
+    justify-content: space-around;
+    margin-left: 1% ;
+    
+  
+    .card {
+      margin: 20px auto 20px;
+      height: 400px;
+      width: 275px;
+    }
+  }
+  
