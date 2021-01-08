@@ -3,9 +3,9 @@ import styles from "./SearchBox.module.scss";
 
 const SearchBox = () => {
   return (
-    <>
-      <p>SearchBox works</p>
-    </>
+    <input 
+    type="text"
+    placeholder="Search Movies..." />
   );
 };
 
