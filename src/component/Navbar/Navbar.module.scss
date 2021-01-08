@@ -1,0 +1,47 @@
+.title{
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2rem;
+    width: 20vw;  
+}
+
+.filters{
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    
+    .search{
+        margin-right: 5%;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        
+    }
+}
+@media only screen and (max-width: 425px) {
+    .title{
+        font-size: 0.75rem ;
+    }
+    .filters{
+        
+        .search{
+            
+            width: 700px;
+        }
+    }
+}
+@media only screen and (max-width: 375px) {
+    .filters{
+        
+        .search{
+            
+            width: 1200px;
+        }
+    }
+ }
