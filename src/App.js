@@ -32,11 +32,15 @@ function App() {
 
 
 const getMovies = () => {
-  fetch(`http://www.omdbapi.com/?apikey=248d288&s=abe&y=2002`)
+  fetch(`http://www.omdbapi.com/?apikey=248d288&s=ade&y=2001`)
   .then((res) => res.json())
   .then((res) => {
-    const cleanedMovies = res.Search.map(cleanMovieData);
-    console.log(cleanedMovies);
+    if(res.Error){
+      console.log(res.Error)
+    } else {
+      const cleanedMovies = res.Search.map(cleanMovieData);
+      console.log(cleanedMovies);
+    }
   })
   .catch((error) => {
     console.log(error);
