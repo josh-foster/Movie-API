@@ -3,7 +3,7 @@ import './App.css';
 import Main from './component/Main'
 import Navbar from './component/Navbar'
 
-
+import "./data/fa-library";
 
 function App() {
 
@@ -15,7 +15,8 @@ function App() {
       id: movie.imdbID,
       title: movie.Title,
       year: movie.Year,
-      img: movie.Poster
+      img: movie.Poster,
+      isfav: false
     };
     return cleanedMovie;
   }
