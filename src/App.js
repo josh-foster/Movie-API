@@ -26,9 +26,9 @@ function App() {
   const activateSearch = (searchTerm) => {
   if(searchTerm) {
     searchTerm.replace(/\s/g, '+');
-    return `http://www.omdbapi.com/?apikey=248d288&s=${searchTerm}`
+    return `https://www.omdbapi.com/?apikey=248d288&s=${searchTerm}`
   } else {
-    return ``
+    return `https://www.omdbapi.com/?apikey=248d288&s=harry`
   }
 }
 
@@ -39,6 +39,7 @@ const getMovies = (searchTerm) => {
   fetch(activateSearch(searchTerm))
   .then((res) => res.json())
   .then((res) => {
+    console.log(res)
     if(res.Error){
       console.log(res.Error)
     } else {
